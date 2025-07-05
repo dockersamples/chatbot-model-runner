@@ -31,12 +31,4 @@ To change these settings, simply edit the `.env` file in the root directory of t
 
    http://localhost:8082 for the GenAI Application in Node
 
-## Requirements
 
-- macOS (recent version)
-- Either:
-  - Docker and Docker Compose (preferred)
-  - Go 1.21 or later
-- Local LLM server
-
-If you're using a different LLM server configuration, you may need to modify the`.env` file.
