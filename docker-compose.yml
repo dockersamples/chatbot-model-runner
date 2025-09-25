@@ -1,55 +1,6 @@
+include:
+  - go-genai/docker-compose.yml
+  - py-genai/docker-compose.yml
+  - node-genai/docker-compose.yml
+  - rust-genai/docker-compose.yaml
 
-services:
-  go-genai:
-    build:
-      context: ./go-genai
-      dockerfile: Dockerfile
-    ports:
-      - "8080:8080"
-    environment:
-      - PORT=8080
-    env_file:
-      - .env
-    restart: unless-stopped
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    depends_on:
-      - llm
-
-  python-genai:
-    build:
-      context: ./py-genai
-      dockerfile: Dockerfile
-    ports:
-      - "8081:8081"
-    environment:
-      - PORT=8081
-    env_file:
-      - .env
-    restart: unless-stopped
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    depends_on:
-      - llm
-
-  node-genai:
-    build:
-      context: ./node-genai
-      dockerfile: Dockerfile
-    ports:
-      - "8082:8082"
-    environment:
-      - PORT=8082
-    env_file:
-      - .env
-    restart: unless-stopped
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    depends_on:
-      - llm
-
-  llm:
-    provider:
-      type: model
-      options:
-        model: ${LLM_MODEL_NAME}

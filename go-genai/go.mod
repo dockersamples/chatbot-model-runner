@@ -1,3 +1,5 @@
-module github.com/fcorti/hello-genai/go-genai
+module github.com/nomadicmehul/hello-genai
 
-go 1.21
+go 1.20
+
+require github.com/gorilla/mux v1.8.1

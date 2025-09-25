@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello-GenAI UI Preview</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #0078D7;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .preview-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .preview-item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .preview-header {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            font-weight: bold;
+        }
+        .preview-content {
+            padding: 20px;
+        }
+        .preview-image {
+            width: 100%;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+        .preview-description {
+            margin-top: 15px;
+            color: #666;
+        }
+        .preview-code {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+        .light-dark-comparison {
+            display: flex;
+            gap: 20px;
+        }
+        .comparison-item {
+            flex: 1;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .comparison-header {
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .light-mode {
+            background-color: #f5f5f5;
+        }
+        .dark-mode {
+            background-color: #333;
+            color: white;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .feature-item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .feature-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #0078D7;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello-GenAI UI Preview</h1>
+    
+    <div class="preview-container">
+        <div class="preview-item">
+            <div class="preview-header">Main Chat Interface (Light Mode)</div>
+            <div class="preview-content">
+                <div class="preview-description">
+                    The new interface features a modern chat design with message bubbles, timestamps, and a clean layout.
+                </div>
+                <div class="preview-code">
+                    [Screenshot would appear here - Light mode interface with chat bubbles, user messages on right in blue,
+                    bot messages on left in white, with timestamps and a clean input area at bottom]
+                </div>
+            </div>
+        </div>
+        
+        <div class="preview-item">
+            <div class="preview-header">Dark Mode Support</div>
+            <div class="preview-content">
+                <div class="preview-description">
+                    The interface now supports dark mode, which can be toggled with the moon/sun icon in the header.
+                    User preference is saved in local storage.
+                </div>
+                <div class="light-dark-comparison">
+                    <div class="comparison-item">
+                        <div class="comparison-header light-mode">Light Mode</div>
+                        <div class="preview-code light-mode">
+                            [Light mode screenshot would appear here]
+                        </div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-header dark-mode">Dark Mode</div>
+                        <div class="preview-code dark-mode">
+                            [Dark mode screenshot would appear here]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="preview-item">
+            <div class="preview-header">New Features</div>
+            <div class="preview-content">
+                <div class="preview-description">
+                    The improved interface includes several new features to enhance user experience.
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-title">Message Suggestions</div>
+                        <p>Clickable message suggestions help first-time users get started quickly.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-title">Clear Chat Button</div>
+                        <p>Users can clear the chat history with a single click.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-title">Markdown Formatting</div>
+                        <p>Bot responses support markdown-like formatting for code, bold, italic, and links.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-title">Auto-resize Input</div>
+                        <p>The message input automatically resizes as users type longer messages.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-title">Animated Loading</div>
+                        <p>An animated "thinking" indicator shows when the bot is processing a request.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-title">Feature Cards</div>
+                        <p>Informative cards highlight key capabilities of the application.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="preview-item">
+            <div class="preview-header">Responsive Design</div>
+            <div class="preview-content">
+                <div class="preview-description">
+                    The interface is fully responsive and works well on mobile devices, tablets, and desktops.
+                </div>
+                <div class="preview-code">
+                    [Responsive design demonstration would appear here - showing the interface adapting to different screen sizes]
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,34 +1,50 @@
-FROM golang:1.21-alpine AS builder
-
-# Install git (required for potential dependencies)
-RUN apk add --no-cache git
+# Build stage
+FROM golang:1.20-alpine AS builder
 
 WORKDIR /app
 
-# Copy go.mod and go.sum files
+# Install git for dependency fetching
+RUN apk add --no-cache git
+
+# Copy go.mod first
 COPY go.mod ./
-# Run go mod download if you have dependencies
-RUN go mod download
+
+# Initialize the module and download dependencies
+RUN go mod tidy && go mod download
 
 # Copy the source code
 COPY . .
 
 # Build the application
-RUN CGO_ENABLED=0 GOOS=linux go build -o /go-genai
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
 
-# Use a minimal alpine image for the final stage
-FROM alpine:latest
+# Final stage
+FROM alpine:3.18
 
-# Add CA certificates for HTTPS
-RUN apk --no-cache add ca-certificates
+WORKDIR /app
 
-WORKDIR /root/
+# Create non-root user
+RUN adduser -D -g '' nomadicmehul
 
-# Copy the binary from the builder stage
-COPY --from=builder /go-genai .
+# Copy the binary from builder stage
+COPY --from=builder /app/main .
+
+# Copy static files and templates
+COPY static/ ./static/
+COPY templates/ ./templates/
+
+# Set ownership
+RUN chown -R nomadicmehul:nomadicmehul /app
+
+# Switch to non-root user
+USER nomadicmehul
 
 # Expose port 8080
 EXPOSE 8080
 
-# Command to run the application
-CMD ["./go-genai"]
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+  CMD wget -qO- http://localhost:8080/health || exit 1
+
+# Run the application
+CMD ["./main"]
