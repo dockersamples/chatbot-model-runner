@@ -13,8 +13,8 @@ To change these settings, simply edit the `.env` file in the root directory of t
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/docker/hello-genai
-   cd hello-genai
+   git clone https://github.com/dockersamples/chatbot-model-runner
+   cd chatbot-model-runner
    ```
 
 2. Start the application using Docker Compose:
@@ -31,13 +31,5 @@ To change these settings, simply edit the `.env` file in the root directory of t
    http://localhost:8082 for the GenAI Application in Node
 
    http://localhost:8083 for the GenAI Application in Rust
-
-## Requirements
-
-- macOS (recent version)
-- Either:
-  - Docker and Docker Compose (preferred)
-  - Go 1.21 or later
-- Local LLM server
 
 If you're using a different LLM server configuration, you may need to modify the`.env` file.
