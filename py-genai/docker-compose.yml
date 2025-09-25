@@ -5,6 +5,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8081:8080"
+    env_file:
+      - .env
     environment:
       - PORT=8080
       - LOG_LEVEL=INFO
